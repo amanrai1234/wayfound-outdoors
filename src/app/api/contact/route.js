@@ -12,7 +12,7 @@ export async function POST(req) {
     }
 
     // Check for missing env vars
-    const required = ["SMTP_HOST", "SMTP_PORT", "SMTP_USER", "SMTP_PASS", "TO_EMAIL"];
+    const required = ["SMTP_HOST", "SMTP_PORT", "SMTP_USER", "SMTP_PASS"];
     const missing = required.filter((k) => !process.env[k]);
     if (missing.length) {
       return NextResponse.json(
@@ -40,7 +40,7 @@ export async function POST(req) {
     // Send email
     const info = await transporter.sendMail({
       from: `"Wayfound Outdoors" <${process.env.SMTP_USER}>`,
-      to: process.env.TO_EMAIL,
+      to: 'wayfoundoutdoor@gmail.com',
       replyTo: email,
       subject: `Wayfound Contact: ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || "(none)"}\n\nMessage:\n${message}`,
@@ -64,7 +64,7 @@ export async function POST(req) {
 
 // Optional GET handler to quickly check env vars in browser
 export async function GET() {
-  const keys = ["SMTP_HOST", "SMTP_PORT", "SMTP_USER", "SMTP_PASS", "TO_EMAIL"];
+  const keys = ["SMTP_HOST", "SMTP_PORT", "SMTP_USER", "SMTP_PASS"];
   const loaded = Object.fromEntries(keys.map((k) => [k, !!process.env[k]]));
   return NextResponse.json({ env: loaded });
 }

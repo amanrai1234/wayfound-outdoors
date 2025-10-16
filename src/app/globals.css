@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #008000; /* requested dark green */
-  --foreground: #ecfdf5; /* light mint text */
+  --background: #D7ecfc; /* light blue background */
+  --foreground: #0A3154; /* dark blue text color */
   --accent-orange: #fb923c; /* orange-400 */
   --accent-green: #10b981; /* emerald-500 */
+  --panel-blue: rgba(30, 64, 175, 0.35); /* deeper blue at ~35% */
 }
 
 @theme inline {
@@ -15,8 +16,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #008000; /* keep same green in dark mode */
-    --foreground: #ecfdf5;
+    --background: #D7ecfc; /* keep same light blue in dark mode */
+    --foreground: #0A3154; /* dark blue text color */
+    --panel-blue: rgba(59, 130, 246, 0.28); /* blue-500 ~28% */
   }
 }
 
@@ -35,4 +37,52 @@ body {
 .accent-pill {
   background-color: color-mix(in oklab, var(--accent-green) 20%, white);
   color: var(--foreground);
+}
+
+/* Blue glass panel for immersive text blocks */
+.glass-blue {
+  background-color: var(--panel-blue);
+}
+
+/* Hand-shaded blue ink vibe overlay for panels */
+.ink-blue {
+  position: relative;
+}
+.ink-blue::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.09) 0 8px, rgba(255,255,255,0) 8px 18px),
+    radial-gradient(120% 120% at 12% 12%, rgba(255,255,255,0.08), transparent 60%),
+    radial-gradient(120% 120% at 88% 18%, rgba(255,255,255,0.06), transparent 60%),
+    radial-gradient(120% 120% at 50% 92%, rgba(255,255,255,0.06), transparent 60%);
+  mix-blend-mode: screen;
+  opacity: 0.6;
+}
+
+/* Ken Burns effect for news hero */
+@keyframes kenburns {
+  0% { transform: scale(1.05) translate3d(0, 0, 0); }
+  100% { transform: scale(1.2) translate3d(2%, -2%, 0); }
+}
+
+/* Gentle floating animation for location cards */
+@keyframes floatY {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-10px); }
+}
+
+/* Simple carousel marquee effect */
+@keyframes carousel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Quick shine sweep for merch cards */
+@keyframes shine {
+  0% { opacity: 0; transform: translateX(-100%); }
+  20% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(100%); }
 }

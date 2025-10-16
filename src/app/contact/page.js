@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Script from "next/script";
 import Image from "next/image";
 
 export default function Contact() {
@@ -34,22 +35,22 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen">
-      {/* Dog image at top */}
-      <div className="flex justify-center w-full mt-8 mb-10">
+    <div className="min-h-screen pt-24">
+      {/* Immersive, heavily dimmed header image */}
+      <div className="relative h-[45vh] w-full mb-10">
         <Image
           src="/images/dog.jpg"
           alt="Friendly dog"
-          width={1200}
-          height={600}
-          className="w-full max-w-5xl h-auto rounded-lg shadow-md object-cover"
+          fill
+          className="object-cover"
           priority
         />
+        <div className="absolute inset-0 bg-black/70" />
       </div>
 
       <main className="max-w-3xl mx-auto px-6 sm:px-8 pb-16">
-        <h1 className="mb-2 text-3xl sm:text-4xl font-bold text-emerald-50">Contact Us</h1>
-        <p className="mb-8 text-emerald-100/90">
+        <h1 className="mb-2 text-3xl sm:text-4xl font-bold tracking-wide" style={{color: '#0A3154'}}>Contact Us</h1>
+        <p className="mb-8" style={{color: '#0A3154'}}>
           Have a question or want to get involved? Send us a message below.
         </p>
 
@@ -119,7 +120,7 @@ export default function Contact() {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="inline-flex items-center justify-center px-5 py-2.5 mt-1 font-medium text-white bg-emerald-700 rounded-md hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-400 disabled:opacity-60"
+            className="inline-flex items-center justify-center px-5 py-2.5 mt-1 font-medium text-white rounded-md hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-400 disabled:opacity-60" style={{backgroundColor: '#023E8A'}}
           >
             {status === "sending" ? "Sending..." : "Send Message"}
           </button>
@@ -134,16 +135,17 @@ export default function Contact() {
           )}
         </form>
 
-        {/* Embedded Calendly */}
+        {/* Fast booking: button linking to Calendly (no heavy inline embed) */}
         <div className="mb-12">
-          <h2 className="mb-4 text-2xl font-semibold">Book a Meeting</h2>
-          <iframe
-            src="https://calendly.com/wayfoundoutdoor/30min?embed_domain=localhost&embed_type=Inline"
-            width="100%"
-            height="650"
-            frameBorder="0"
-            className="rounded-xl border border-emerald-100 shadow-md"
-          />
+          <h2 className="mb-4 text-2xl font-bold tracking-wide" style={{color: '#0A3154'}}>Book a Meeting</h2>
+          <a
+            href="https://calendly.com/wayfoundoutdoor/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center rounded-md px-5 py-2.5 font-semibold text-white shadow hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-blue-300" style={{backgroundColor: '#023E8A'}}
+          >
+            Book on Calendly
+          </a>
         </div>
 
 
