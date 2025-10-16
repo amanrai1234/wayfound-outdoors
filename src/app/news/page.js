@@ -5,10 +5,24 @@ import Image from 'next/image';
 
 export default function News() {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const images = [
+    "/images/fishing image1.jpg",
+    "/images/news.jpg"
+  ];
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   return (
     <div className="min-h-screen pt-24 p-8">
@@ -23,7 +37,7 @@ export default function News() {
         </h1>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {/* Event Image */}
+          {/* Event Image Carousel */}
           <div className="lg:col-span-1">
             <div 
               className={`relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl transition-all duration-1000 transform ${
@@ -31,16 +45,36 @@ export default function News() {
               }`}
               style={{animationDelay: '0.2s'}}
             >
-              <Image
-                src="/images/fishing image1.jpg"
-                alt="Fishing Event - Young men learning and growing together"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                priority
-              />
+              <div className="relative w-full h-full">
+                {images.map((image, index) => (
+                  <Image
+                    key={index}
+                    src={image}
+                    alt={`News Image ${index + 1}`}
+                    fill
+                    className={`object-cover transition-opacity duration-1000 ${
+                      index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={index === 0}
+                  />
+                ))}
+              </div>
               {/* Gradient overlay for better text readability if needed */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500" />
+              
+              {/* Image indicators */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentImageIndex ? 'bg-white' : 'bg-white/50'
+                    }`}
+                    onClick={() => setCurrentImageIndex(index)}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
@@ -52,6 +86,9 @@ export default function News() {
               }`}
               style={{animationDelay: '0.4s'}}
             >
+              <h2 className="text-2xl font-bold mb-4" style={{color: '#0A3154'}}>
+                Intro to fishing day- A day to remember
+              </h2>
               <p className="text-lg leading-relaxed hover:text-blue-700 transition-colors duration-300 cursor-default">
                 Wayfound Outdoors recently hosted a day that brought eight young men
                 together for something more than fishing—it was a journey of growth,

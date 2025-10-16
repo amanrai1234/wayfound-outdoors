@@ -5,7 +5,9 @@ import Image from "next/image";
 
 export default function About() {
   const [visibleSections, setVisibleSections] = useState({});
+  const [aboutContentVisible, setAboutContentVisible] = useState(false);
   const sectionRefs = useRef([]);
+  const aboutContentRef = useRef(null);
 
   // Intersection Observer for scroll animations
   useEffect(() => {
@@ -13,16 +15,26 @@ export default function About() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setVisibleSections(prev => ({
-              ...prev,
-              [entry.target.dataset.section]: true
-            }));
+            if (entry.target.dataset.section === 'about-content') {
+              setAboutContentVisible(true);
+            } else {
+              setVisibleSections(prev => ({
+                ...prev,
+                [entry.target.dataset.section]: true
+              }));
+            }
           }
         });
       },
       { threshold: 0.3 }
     );
 
+    // Observe about content section
+    if (aboutContentRef.current) {
+      observer.observe(aboutContentRef.current);
+    }
+
+    // Observe team member sections
     sectionRefs.current.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
@@ -58,13 +70,87 @@ Delivered from new-age spirituality in 2024, Brittani now walks boldly in faith,
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Title Section */}
-      <div className="px-6 sm:px-10 pt-24 pb-16">
+    <div className="min-h-screen" style={{backgroundColor: 'var(--background)'}}>
+      {/* About Us Section */}
+      <div className="px-6 sm:px-10 pt-24 pb-20">
+        <div className="max-w-6xl mx-auto">
+          {/* Main Title */}
+          <div className="text-center mb-16">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-wide mb-6" style={{color: '#0A3154'}}>
+              About Us
+            </h1>
+            <p className="text-xl sm:text-2xl leading-relaxed max-w-4xl mx-auto" style={{color: '#0A3154'}}>
+              Wayfound Outdoors mentors young men through transformative, nature-based experiences that build character, confidence, and community.
+            </p>
+          </div>
+
+          {/* Mission, Vision, Values Cards */}
+          <div 
+            ref={aboutContentRef}
+            data-section="about-content"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
+            {/* Mission Card */}
+            <div className={`group bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-2xl transition-all duration-700 hover:scale-105 ${
+              aboutContentVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold mb-4" style={{color: '#0A3154'}}>Mission</h3>
+              </div>
+              <p className="text-lg leading-relaxed text-center" style={{color: '#0A3154'}}>
+                We empower young men to grow through mentorship, wellness, and hands-on skill-building—shaping leaders who serve their communities with courage and compassion.
+              </p>
+            </div>
+
+            {/* Vision Card */}
+            <div className={`group bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-2xl transition-all duration-700 hover:scale-105 delay-200 ${
+              aboutContentVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold mb-4" style={{color: '#0A3154'}}>Vision</h3>
+              </div>
+              <p className="text-lg leading-relaxed text-center" style={{color: '#0A3154'}}>
+                A future where young men lead with confidence, embrace their identity, and rewrite expectations—bringing justice, inclusion, and accountability wherever they go.
+              </p>
+            </div>
+
+            {/* Values Card */}
+            <div className={`group bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-2xl transition-all duration-700 hover:scale-105 delay-400 ${
+              aboutContentVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+            }`}>
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold mb-4" style={{color: '#0A3154'}}>Values</h3>
+              </div>
+              <p className="text-lg leading-relaxed text-center" style={{color: '#0A3154'}}>
+                We value character over comfort, brotherhood and belonging, faithful stewardship of creation, and a life shaped by faith, integrity, and accountability.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Meet the Wayfinders Section */}
+      <div className="px-6 sm:px-10 pb-16">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-wide mb-4" style={{color: '#0A3154'}}>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-wide mb-4" style={{color: '#0A3154'}}>
             Meet the Wayfinders
-          </h1>
+          </h2>
         </div>
       </div>
 

@@ -12,82 +12,125 @@ export default function Programs() {
 
   const programs = [
     {
-      title: "Wayfound Leadership Cohort",
-      subtitle: "",
-      image: "/images/fishing image1.jpg",
+      title: "Fishing Track",
+      subtitle: "Cast Toward Purpose",
+      image: "/images/fish3.jpg",
       content: {
-        intro: "At the heart of Wayfound Outdoors is the Wayfound Leadership Cohort — a transformational journey for young men who are ready to grow in faith, purpose, and leadership. Over the course of a year, participants are guided through intentional mentorship, outdoor challenge, and spiritual formation designed to help them become servant leaders—young men who live with courage, humility, and conviction.",
-        description: "The Leadership Cohort is a discipleship-based mentorship program that blends outdoor adventure with life skill development and spiritual growth. Each season centers around a theme—Identity, Brotherhood, Resilience, and Legacy—building upon one another to shape the character and confidence of each participant.",
-        duration: "12 Months",
+        intro: "The water slows us down. It teaches us patience, focus, and trust. Our Fishing Experiences invite young men to step away from distractions and reconnect—with themselves, with nature, and with God. Every cast becomes a practice in perseverance and faith, reminding us that what we seek often takes time and care to find.",
         tiers: [
           {
-            name: "Foundation Phase",
-            duration: "Months 1-3",
-            description: "Building trust, establishing routines, and introducing core values through outdoor experiences and mentorship.",
-            includes: ["Weekly mentorship sessions", "Monthly outdoor adventures", "Personal development planning", "Community service projects"],
-            focus: "Identity formation and trust building"
+            name: "First Cast",
+            duration: "2.5 hours",
+            description: "A welcoming introduction for beginners and groups new to the outdoors. Participants learn foundational fishing skills while exploring themes of identity, confidence, and stillness.",
+            includes: ["Shoreline fishing instruction (casting, knot-tying, fish handling)", "All fishing gear and bait", "Mentor-guided reflection circle focused on 'What am I reaching for?'", "1 mentor per 12–15 youth", "Light snacks and community-building moments"],
+            focus: "Finding calm in uncertainty, celebrating first victories, and learning that patience is a form of strength"
           },
           {
-            name: "Growth Phase", 
-            duration: "Months 4-8",
-            description: "Deepening relationships, challenging comfort zones, and developing leadership skills through increasingly complex outdoor challenges.",
-            includes: ["Bi-weekly leadership training", "Extended wilderness expeditions", "Peer mentoring opportunities", "Skill-building workshops"],
-            focus: "Leadership development and resilience"
+            name: "Guided Cast", 
+            duration: "4 hours",
+            description: "For groups ready to dive deeper. Guided Cast builds endurance, teamwork, and reflection through extended fishing practice, journaling, and faith-centered discussion.",
+            includes: ["Lunch and hydration support", "Personal journals and growth prompts", "Nature walk with group reflections", "Mentorship focused on confidence, belonging, and perseverance"],
+            focus: "Learning that consistency builds confidence, and that the process is just as meaningful as the outcome"
           },
           {
-            name: "Legacy Phase",
-            duration: "Months 9-12", 
-            description: "Preparing for transition, mentoring others, and applying leadership skills in real-world contexts.",
-            includes: ["Mentoring younger participants", "Community leadership projects", "Transition planning", "Legacy project development"],
-            focus: "Legacy building and servant leadership"
+            name: "Deep Water Connections",
+            duration: "Full Day (8 hours)", 
+            description: "A full-day immersion combining advanced skill-building with intentional mentorship and community. Deep Water Connections blends challenge with reflection, transforming time on the water into lessons about leadership and faith.",
+            includes: ["Boat, kayak, or shoreline fishing for larger species", "Rotating mentor conversations and team challenges", "'Cook Your Catch' fish fry and storytelling circle", "Journals, meals, and SEL reflection tools"],
+            focus: "Deepening relationships and resilience. Learning that leadership is patience in motion"
           }
         ],
-        buttonText: "Apply for Leadership Cohort"
+        buttonText: "Book Your Fishing Experience"
       }
     },
     {
-      title: "Adventure Experiences",
-      subtitle: "Three Pathways to Growth",
-      image: "/images/fishing front image 2.jpg",
+      title: "Hiking Track",
+      subtitle: "Walk the Path Together",
+      image: "/images/hike.jpg",
       content: {
-        intro: "Each experience is designed to meet participants where they are and guide them toward deeper connection, confidence, and purpose. Whether you're taking your first steps into outdoor adventure or ready for deeper challenges, there's a pathway for you.",
-        description: "Our Adventure Experiences combine outdoor skill-building with personal growth, creating spaces where young men can discover their strengths, build confidence, and form lasting friendships.",
+        intro: "Every trail has lessons to teach—about endurance, community, and faith. Our Hiking Experiences guide young men and families to discover what it means to persevere, to trust others, and to see strength as a shared journey.",
         tiers: [
           {
-            name: "Fishing Track",
-            duration: "1-3 Days",
-            description: "Every cast is a lesson in patience, faith, and perseverance. Our Fishing Experiences invite youth and families to slow down, breathe deep, and find stillness in nature's rhythm.",
-            includes: ["Professional instruction", "All equipment provided", "Safety training", "Reflection circles"],
-            focus: "Patience, focus, and connection with nature"
+            name: "Wilderness Mirror Walk",
+            duration: "3–4 hours",
+            description: "A gentle yet profound experience designed to help participants reflect, breathe, and connect with nature's quiet wisdom.",
+            includes: ["Guided 2–3 mile hike through local trails or parks", "Breathing and mindfulness exercises", "Solo reflection stops and group journaling", "1 mentor per 12–15 youth", "Light snacks and hydration support"],
+            focus: "Building awareness, mindfulness, and gratitude through the natural world"
           },
           {
-            name: "Hiking Track",
-            duration: "Half Day - 3 Days", 
-            description: "The trail teaches what words cannot. Our Hiking Experiences are about more than reaching the summit—they're about discovering strength in community.",
-            includes: ["Guided trail experiences", "Navigation training", "Group challenges", "Mountain-top reflections"],
-            focus: "Endurance, teamwork, and personal achievement"
+            name: "Ascent Experience",
+            duration: "5 hours", 
+            description: "A moderate challenge designed to reveal inner leadership. Participants rotate as group leaders while learning communication, encouragement, and perseverance.",
+            includes: ["3–5 mile hike with leadership rotations", "Reflection stations and discussion prompts", "Lunch and rest breaks", "Group debrief and mentorship reflection"],
+            focus: "Discovering that real leadership means lifting others along the climb"
           },
           {
-            name: "Camping Track",
-            duration: "2-5 Days",
-            description: "The fire is where stories are shared and souls are restored. Our Camping Experiences bring youth and mentors together under the stars for connection, reflection, and brotherhood.",
-            includes: ["Campsite setup and management", "Fire building and safety", "Group cooking", "Evening reflection circles"],
-            focus: "Community building, self-reliance, and spiritual growth"
+            name: "Vision Quest Hike",
+            duration: "Full Day",
+            description: "A powerful summit experience that blends physical challenge with spiritual discovery. Participants set intentions, face obstacles, and reflect at scenic summits or waterfalls.",
+            includes: ["4–6 mile hike with elevation gain", "'What mountain are you climbing?' reflection activity", "Summit silence and guided journaling", "Lunch, hydration, and mentor debrief"],
+            focus: "Overcoming internal and external mountains through courage, reflection, and prayer"
           }
         ],
-        buttonText: "Book Your Adventure"
+        buttonText: "Book Your Hiking Experience"
+      }
+    },
+    {
+      title: "Camping Track",
+      subtitle: "Gather, Grow, and Ground",
+      image: "/images/tree-back.jpg",
+      content: {
+        intro: "When the fire burns low and the stars emerge, stories come alive. Our Camping Experiences create space for connection, reflection, and renewal. These overnight journeys combine teamwork, skill-building, and sacred moments around the fire—where young men learn to rely on themselves and each other.",
+        tiers: [
+          {
+            name: "Sacred Fire Circle Campout",
+            duration: "1 Night",
+            description: "An intimate overnight experience where community and conversation come first. Youth and mentors gather around the fire for stories, prayer, and reflection on what it means to belong.",
+            includes: ["Tent setup training and outdoor safety instruction", "Fire circle storytelling and devotionals", "Dinner, breakfast, and snacks", "All gear provided and supervised setup"],
+            focus: "Cultivating belonging, gratitude, and connection through shared reflection"
+          },
+          {
+            name: "Adventure Camp",
+            duration: "2 Days / 1 Night", 
+            description: "A balanced combination of hands-on learning and personal growth. Participants strengthen outdoor skills while deepening trust and resilience.",
+            includes: ["All Sacred Fire Circle features", "Skill workshops: fire-starting, knot-tying, or camp cooking", "Day hike or fishing integration", "Journals and SEL tools for self-reflection", "Mentor-led group discussion on leadership and teamwork"],
+            focus: "Building confidence and courage through shared challenge and service"
+          },
+          {
+            name: "Immersion Expedition",
+            duration: "3 Days / 2 Nights",
+            description: "Our most transformative experience. Youth step fully into the wilderness to explore survival, leadership, and faith through daily challenges and devotionals.",
+            includes: ["Multi-day itinerary blending hiking, fishing, and survival skills", "Morning and evening reflection circles", "Skill badges for Fishing, Survival, and Leadership", "All meals, gear, transportation, and safety support provided"],
+            focus: "Developing independence, purpose, and brotherhood through full immersion in nature and mentorship"
+          }
+        ],
+        buttonText: "Book Your Camping Experience"
       }
     },
     {
       title: "The Wayfinder Retreat",
-      subtitle: "Our Signature Experience",
-      image: "/images/fishing front image 3.jpg",
+      subtitle: "Lead by Love",
+      image: "/images/main-pic.jpg",
       content: {
         intro: "This is the heart of Wayfound Outdoors—a four-day journey of discovery, restoration, and faith. The Wayfinder Retreat combines outdoor adventure, personal reflection, and intentional brotherhood to help young men find who they are and who they're called to be.",
         description: "Each day explores a theme: Identity, The Mask & Pose, Wounds, and Legacy. Participants are guided through devotionals, small group discussions, and hands-on challenges that inspire transformation.",
         duration: "4 Days / 3 Nights",
-        tagline: "Where boys become men, and men become leaders",
+        includes: ["Guided fishing and hiking adventures", "Campfire circles for storytelling and vulnerability", "Mentorship sessions and journaling workshops", "Reflection and prayer times", "Closing ceremony and rite of passage"],
+        focus: "Healing through faith, redefining strength through love, and learning that leadership begins with service",
         buttonText: "Register for Wayfinder Retreat"
+      }
+    },
+    {
+      title: "Wayfound Leadership Cohort",
+      subtitle: "Becoming Men Who Lead by Love",
+      image: "/images/wood-back.jpg",
+      content: {
+        intro: "At the heart of Wayfound Outdoors is the Wayfound Leadership Cohort — a transformational journey for young men who are ready to grow in faith, purpose, and leadership. Over the course of a year, participants are guided through intentional mentorship, outdoor challenge, and spiritual formation designed to help them become servant leaders—young men who live with courage, humility, and conviction.",
+        description: "The Leadership Cohort is a discipleship-based mentorship program that blends outdoor adventure with life skill development and spiritual growth. Each season centers around a theme—Identity, Brotherhood, Resilience, and Legacy—building upon one another to shape the character and confidence of each participant.",
+        duration: "12 Months",
+        includes: ["Weekly Mentorship Sessions: Small-group gatherings focused on reflection, scripture, and leadership principles", "Outdoor Adventures: Monthly day trips and multi-day retreats integrating physical challenge, teamwork, and faith", "Community Service Projects: Real-world opportunities to serve others and put leadership into action", "Personal Coaching: One-on-one mentorship for goal setting, accountability, and emotional growth", "Culminating Rite of Passage: A final outdoor retreat where each participant reflects on his growth and commits to living as a leader of integrity and compassion"],
+        focus: "Developing servant leaders who live with courage, humility, and conviction",
+        buttonText: "Apply for Leadership Cohort"
       }
     }
   ];
@@ -222,6 +265,37 @@ export default function Programs() {
                     </div>
                   )}
 
+                  {/* Includes and Focus for programs without tiers */}
+                  {!program.content.tiers && program.content.includes && (
+                    <div className="space-y-6 mb-8">
+                      <div className="bg-gradient-to-br from-blue-50/80 to-white/60 backdrop-blur-sm rounded-xl p-6 border border-blue-100/50">
+                        <div className="mb-4">
+                          <h4 className="text-lg font-bold mb-3 flex items-center gap-2" style={{color: '#0A3154'}}>
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            Includes:
+                          </h4>
+                          <ul className="space-y-2">
+                            {program.content.includes.map((item, itemIndex) => (
+                              <li key={itemIndex} className="flex items-start gap-2">
+                                <span className="text-blue-600 font-bold">•</span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        {program.content.focus && (
+                          <div className="bg-blue-100/50 rounded-lg p-4">
+                            <p className="text-lg font-medium italic text-blue-800">
+                              <span className="font-bold">Focus:</span> {program.content.focus}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
                   {/* Tagline if exists */}
                   {program.content.tagline && (
                     <div className="text-center mb-6">
@@ -258,13 +332,13 @@ export default function Programs() {
               Whether you're a parent seeking growth for your child, a youth ready for purpose, or a partner hoping to make a difference, there's a place for you here.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/programs" className="inline-flex items-center rounded-md px-6 py-3 font-semibold text-white shadow hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-blue-300" style={{backgroundColor: '#023E8A'}}>
+              <a href="/contact" className="inline-flex items-center rounded-md px-6 py-3 font-semibold text-white shadow hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-blue-300" style={{backgroundColor: '#023E8A'}}>
                 Start Your Journey
               </a>
               <a href="/contact" className="inline-flex items-center rounded-md px-6 py-3 font-semibold text-white shadow hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-blue-300" style={{backgroundColor: '#023E8A'}}>
                 Bring Wayfound to Your Organization
               </a>
-              <a href="/about" className="inline-flex items-center rounded-md px-6 py-3 font-semibold text-white shadow hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-blue-300" style={{backgroundColor: '#023E8A'}}>
+              <a href="/donate" className="inline-flex items-center rounded-md px-6 py-3 font-semibold text-white shadow hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-blue-300" style={{backgroundColor: '#023E8A'}}>
                 Support the Mission
               </a>
             </div>

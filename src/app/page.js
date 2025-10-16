@@ -7,6 +7,7 @@ import FlipBook from "@/components/FlipBook";
 export default function Home() {
   const [visibleSections, setVisibleSections] = useState({});
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [expandedImage, setExpandedImage] = useState(null);
   const sectionRefs = useRef({});
 
   useEffect(() => {
@@ -113,31 +114,34 @@ export default function Home() {
       <div className="relative h-[110vh] overflow-hidden">
         <div className="absolute inset-0 scale-110 animate-[kenburns_20s_ease-in-out_infinite_alternate]">
         <Image
-            src="/images/background.jpg"
+            src="/images/main-pic.jpg"
           alt="Wayfound Outdoors"
           fill
           priority
-          className="object-cover"
+          className="object-cover animate-[gentle-drift_15s_ease-in-out_infinite_alternate]"
         />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
+        
+        {/* Additional animated overlay layers */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-emerald-500/10 animate-[color-shift_12s_ease-in-out_infinite_alternate]"></div>
+        <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-white/5 to-transparent animate-[light-sweep_8s_ease-in-out_infinite_alternate]"></div>
         
         {/* Floating outdoor elements */}
-        <div className="absolute top-20 left-10 animate-[floatY_8s_ease-in-out_infinite_alternate] opacity-60">
-          <div className="w-8 h-8 border-2 border-white/30 rounded-full"></div>
+        <div className="absolute top-20 left-10 animate-[floatY_8s_ease-in-out_infinite_alternate] opacity-80">
+          <div className="w-8 h-8 border-2 border-white/60 rounded-full"></div>
         </div>
-        <div className="absolute top-32 right-16 animate-[floatY_6s_ease-in-out_infinite_alternate] opacity-40">
-          <div className="w-6 h-6 border-2 border-white/20 rounded-full"></div>
+        <div className="absolute top-32 right-16 animate-[floatY_6s_ease-in-out_infinite_alternate] opacity-60">
+          <div className="w-6 h-6 border-2 border-white/50 rounded-full"></div>
         </div>
-        <div className="absolute bottom-32 left-20 animate-[floatY_7s_ease-in-out_infinite_alternate] opacity-50">
-          <div className="w-4 h-4 border-2 border-white/25 rounded-full"></div>
+        <div className="absolute bottom-32 left-20 animate-[floatY_7s_ease-in-out_infinite_alternate] opacity-70">
+          <div className="w-4 h-4 border-2 border-white/55 rounded-full"></div>
         </div>
         
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center max-w-5xl mx-auto px-6">
             {/* Outdoor-themed badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-2 mb-8 border border-white/20">
-              <span className="text-white/90 text-sm font-medium">Adventure Awaits</span>
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-8 border border-white/40">
+              <span className="text-white/95 text-sm font-medium">Adventure Awaits</span>
             </div>
             
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-wide mb-6 text-white drop-shadow-2xl">
@@ -175,12 +179,12 @@ export default function Home() {
             {/* Outdoor stats */}
             <div className="mt-16 grid grid-cols-2 gap-8 max-w-xl mx-auto">
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-white drop-shadow-lg">25+</div>
-                <div className="text-sm text-white/80">Trips Led</div>
-              </div>
-              <div className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-white drop-shadow-lg">50+</div>
                 <div className="text-sm text-white/80">Young Men Impacted</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-bold text-white drop-shadow-lg">25+</div>
+                <div className="text-sm text-white/80">Trips Led</div>
               </div>
             </div>
           </div>
@@ -188,8 +192,8 @@ export default function Home() {
         
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
+          <div className="w-6 h-10 border-2 border-white/70 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/90 rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </div>
@@ -456,44 +460,279 @@ export default function Home() {
         </div>
       </div>
 
-       {/* Divider after Stories */}
-       <div className="px-6 sm:px-10 py-8">
+      {/* Adventure Gallery & Join the Movement */}
+      <div className="mt-20 px-6 sm:px-10">
          <div className="max-w-7xl mx-auto">
-           <div className="flex items-center justify-center">
-             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+          
+          {/* Gallery Header */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-3 bg-black/20 backdrop-blur-sm rounded-full px-8 py-3 mb-6 border border-black/20">
+              <span className="text-lg font-semibold" style={{color: '#0A3154'}}>Adventure Gallery</span>
            </div>
-         </div>
-       </div>
-
-      {/* Join the Movement Section */}
-      <div className="px-6 sm:px-10 py-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-xl p-8 shadow-lg text-center" style={{color: '#0A3154'}}>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-wide mb-6" style={{color: '#0A3154'}}>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-wide mb-4" style={{color: '#0A3154'}}>
               Join the Movement
             </h2>
-            <p className="text-lg leading-relaxed mb-6">
-              This isn't just a program—it's a pathway to restoration.
-              Whether you're a youth searching for purpose, a parent seeking connection, or a partner ready to make impact, there's a place for you here.
+            <p className="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-8" style={{color: '#0A3154'}}>
+              This isn't just a program—it's a pathway to restoration. Every adventure tells a story of growth, connection, and purpose.
             </p>
-            <p className="text-lg font-medium mb-8">
-              Let&apos;s lead with love. Let&apos;s build what&apos;s been broken. Let&apos;s get Wayfound—together.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/programs" className="inline-flex items-center rounded-md px-6 py-3 font-semibold text-white shadow hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-blue-300" style={{backgroundColor: '#023E8A'}}>
-                Start Your Journey
-              </a>
-              <a href="/contact" className="inline-flex items-center rounded-md px-6 py-3 font-semibold text-white shadow hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-blue-300" style={{backgroundColor: '#023E8A'}}>
-                Bring Wayfound to Your Organization
-              </a>
-              <a href="/about" className="inline-flex items-center rounded-md px-6 py-3 font-semibold text-white shadow hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-blue-300" style={{backgroundColor: '#023E8A'}}>
-                Support Our Mission
-              </a>
+          </div>
+          
+          {/* Integrated Gallery Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
+            
+            {/* Main Featured Image */}
+            <div className="lg:col-span-6 group">
+              <div 
+                className="relative h-80 lg:h-96 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer"
+                onClick={() => setExpandedImage('/images/collage.jpg')}
+              >
+                <Image
+                  src="/images/collage.jpg"
+                  alt="Adventure collage"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="absolute bottom-4 left-4">
+                  <h3 className="text-white font-bold text-xl drop-shadow-lg">Adventure Stories</h3>
+                </div>
+              </div>
+            </div>
+            
+            {/* Call to Action Card */}
+            <div className="lg:col-span-6 relative">
+              {/* Animated background elements */}
+              <div className="absolute -top-4 -left-4 w-12 h-12 bg-blue-100 rounded-full animate-pulse opacity-60"></div>
+              <div className="absolute -top-2 -right-6 w-6 h-6 bg-blue-200 rounded-full animate-pulse opacity-40 delay-1000"></div>
+              <div className="absolute -bottom-3 -left-8 w-8 h-8 bg-blue-150 rounded-full animate-pulse opacity-50 delay-500"></div>
+              
+              <div className="bg-gradient-to-br from-white via-blue-50/30 to-white rounded-2xl p-8 h-full shadow-xl border border-blue-100/50 backdrop-blur-sm text-center relative overflow-hidden">
+                {/* Floating particles animation */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-300 rounded-full animate-ping opacity-20"></div>
+                  <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-blue-400 rounded-full animate-ping opacity-30 delay-700"></div>
+                  <div className="absolute top-1/2 left-3/4 w-1.5 h-1.5 bg-blue-200 rounded-full animate-ping opacity-25 delay-1000"></div>
+                </div>
+                
+                <div className="relative z-10 h-full flex flex-col justify-center">
+                  <h3 className="text-2xl sm:text-3xl font-bold tracking-wide mb-4 animate-fade-in-up" style={{color: '#0A3154'}}>
+                    Ready to Begin?
+                  </h3>
+                  <p className="text-base md:text-lg leading-relaxed mb-6 animate-fade-in-up delay-200" style={{color: '#0A3154'}}>
+                    Whether you're a youth searching for purpose, a parent seeking connection, or a partner ready to make impact, there's a place for you here.
+                  </p>
+                  <p className="text-base md:text-lg font-medium mb-8 animate-fade-in-up delay-300" style={{color: '#0A3154'}}>
+                    Let's lead with love. Let's build what's been broken. Let's get Wayfound—together.
+                  </p>
+                  <div className="flex flex-col gap-3 animate-fade-in-up delay-400">
+                    <a href="/programs" className="group inline-flex items-center justify-center gap-3 rounded-xl px-6 py-3 font-bold text-white shadow-2xl transition-all duration-500 hover:shadow-[0_0_0_4px_rgba(255,255,255,0.2),0_20px_40px_rgba(2,62,138,0.4)] hover:scale-105 hover:brightness-110 focus:outline-none focus:ring-4 focus:ring-blue-300 border border-white/20" style={{backgroundColor: '#023E8A'}}>
+                      <span>Start Your Journey</span>
+                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                    <a href="/contact" className="group inline-flex items-center justify-center gap-3 rounded-xl px-6 py-3 font-bold text-white shadow-2xl transition-all duration-500 hover:shadow-[0_0_0_4px_rgba(255,255,255,0.2),0_20px_40px_rgba(2,62,138,0.4)] hover:scale-105 hover:brightness-110 focus:outline-none focus:ring-4 focus:ring-blue-300 border border-white/20" style={{backgroundColor: '#023E8A'}}>
+                      <span>Partner With Us</span>
+                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                    <a href="/about" className="group inline-flex items-center justify-center gap-3 rounded-xl px-6 py-3 font-bold text-white shadow-2xl transition-all duration-500 hover:shadow-[0_0_0_4px_rgba(255,255,255,0.2),0_20px_40px_rgba(2,62,138,0.4)] hover:scale-105 hover:brightness-110 focus:outline-none focus:ring-4 focus:ring-blue-300 border border-white/20" style={{backgroundColor: '#023E8A'}}>
+                      <span>Support Our Mission</span>
+                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Smaller Gallery Images */}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div className="group">
+              <div 
+                className="relative h-32 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer"
+                onClick={() => setExpandedImage('/images/fisihing2.jpg')}
+              >
+                <Image
+                  src="/images/fisihing2.jpg"
+                  alt="Fishing moment"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 16vw, 16vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="group">
+              <div 
+                className="relative h-32 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer"
+                onClick={() => setExpandedImage('/images/tree-back.jpg')}
+              >
+                <Image
+                  src="/images/tree-back.jpg"
+                  alt="Nature backdrop"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 16vw, 16vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="group">
+              <div 
+                className="relative h-32 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer"
+                onClick={() => setExpandedImage('/images/wood-back.jpg')}
+              >
+                <Image
+                  src="/images/wood-back.jpg"
+                  alt="Wooden backdrop"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 16vw, 16vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="group">
+              <div 
+                className="relative h-32 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer"
+                onClick={() => setExpandedImage('/images/woodback.jpg')}
+              >
+                <Image
+                  src="/images/woodback.jpg"
+                  alt="Wooden background"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 16vw, 16vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="group">
+              <div 
+                className="relative h-32 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer"
+                onClick={() => setExpandedImage('/images/back.jpg')}
+              >
+                <Image
+                  src="/images/back.jpg"
+                  alt="Adventure background"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 16vw, 16vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="group">
+              <div 
+                className="relative h-32 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer"
+                onClick={() => setExpandedImage('/images/fishing1.jpg')}
+              >
+                <Image
+                  src="/images/fishing1.jpg"
+                  alt="Fishing adventure"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 16vw, 16vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Image Expansion Modal */}
+      {expandedImage && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={() => setExpandedImage(null)}
+        >
+          <div className="relative max-w-7xl max-h-[90vh] mx-4">
+            <button
+              onClick={() => setExpandedImage(null)}
+              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors duration-300 z-10"
+            >
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <div 
+              className="relative rounded-2xl overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={expandedImage}
+                alt="Expanded view"
+                width={1200}
+                height={800}
+                className="object-contain max-h-[90vh] w-auto"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
