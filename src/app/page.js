@@ -257,7 +257,7 @@ export default function Home() {
                         {section.title}
                       </h3>
                        <p className="text-xl sm:text-2xl text-white/90 drop-shadow-md font-medium">
-                         "{section.subtitle}"
+                         &ldquo;{section.subtitle}&rdquo;
                        </p>
                     </div>
                   </div>
@@ -273,7 +273,7 @@ export default function Home() {
                               {section.title}
                             </h3>
                               <p className="text-xl sm:text-2xl font-semibold text-blue-700 mb-6">
-                                "{section.subtitle}"
+                                &ldquo;{section.subtitle}&rdquo;
                               </p>
                 </div>
 
@@ -478,7 +478,7 @@ export default function Home() {
               Whether you're a youth searching for purpose, a parent seeking connection, or a partner ready to make impact, there's a place for you here.
             </p>
             <p className="text-lg font-medium mb-8">
-              Let's lead with love. Let's build what's been broken. Let's get Wayfound—together.
+              Let&apos;s lead with love. Let&apos;s build what&apos;s been broken. Let&apos;s get Wayfound—together.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/programs" className="inline-flex items-center rounded-md px-6 py-3 font-semibold text-white shadow hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-blue-300" style={{backgroundColor: '#023E8A'}}>
